@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RiceGuard AI mark: a rice-leaf silhouette (vesica shape + center vein)
+     framed by camera/scan-style corner brackets: "leaf" + "vision/protection",
+     per project brief section 11's brand direction. Kept to flat shapes and
+     restrained gold-on-ivory strokes, no gradients/glassmorphism. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- leaf blade -->
+    <path
+        android:fillColor="#FAF6EC"
+        android:pathData="M54,21 C71,34 71,75 54,88 C37,75 37,34 54,21 Z" />
+
+    <!-- center vein -->
+    <path
+        android:strokeColor="#0F3D2A"
+        android:strokeWidth="1.6"
+        android:pathData="M54,29 C51,45 51,64 54,80" />
+
+    <!-- side veins -->
+    <path
+        android:strokeColor="#0F3D2A"
+        android:strokeWidth="1.1"
+        android:pathData="M54,42 C49,44 46,47 44,51 M54,42 C59,44 62,47 64,51" />
+    <path
+        android:strokeColor="#0F3D2A"
+        android:strokeWidth="1.1"
+        android:pathData="M54,58 C49,60 46,63 44,67 M54,58 C59,60 62,63 64,67" />
+
+    <!-- scan-viewfinder corner brackets -->
+    <path
+        android:strokeColor="#C9A227"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M26,32 L26,24 L34,24" />
+    <path
+        android:strokeColor="#C9A227"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M82,32 L82,24 L74,24" />
+    <path
+        android:strokeColor="#C9A227"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M26,76 L26,84 L34,84" />
+    <path
+        android:strokeColor="#C9A227"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M82,76 L82,84 L74,84" />
+</vector>

@@ -1,0 +1,82 @@
+# Shared configuration for the RiceLeafDiseaseBD disease-detection system.
+# Paths are relative to the project root; every script resolves them with
+# pathlib relative to this file's location, so the project can be moved
+# without editing this file.
+
+seed: 42
+
+paths:
+  project_root: "."
+  dataset_original: "dataset/original"          # untouched, extracted archive
+  dataset_processed: "dataset/processed"         # everything derived from it
+  dataset_metadata_xlsx: "Dataset metadata.xlsx" # ships beside the zip, not inside it
+  yolo_dataset: "dataset/processed/yolo"
+  classification_dataset: "dataset/processed/classification"
+  outputs: "outputs"
+  models: "models"
+
+classes:
+  all:
+    - Healthy
+    - Blast
+    - Brown Spot
+    - Leaf Smut
+    - Rice Tungro
+    - Sheath Blight
+  disease_only:
+    - Blast
+    - Brown Spot
+    - Leaf Smut
+    - Rice Tungro
+    - Sheath Blight
+  # Documented in README.md; independently verified against the label files
+  # by preprocessing/dataset_audit.py (see outputs/dataset_audit.json ->
+  # class_mapping.matches_documented).
+  documented_yolo_id_to_class:
+    0: Brown Spot
+    1: Blast
+    2: Healthy
+    3: Leaf Smut
+    4: Rice Tungro
+    5: Sheath Blight
+
+split:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+
+classification_dataset:
+  # The CNN is trained on BOTH full images (all 6 classes -- the only option
+  # for Healthy, which has no boxes) AND YOLO-box crops (5 disease classes),
+  # so it generalizes to both inference-time input types: a full frame when
+  # YOLO finds nothing, and a crop when YOLO finds a candidate region. See
+  # README.md "Architecture decisions" for the full justification.
+  include_full_images_for_disease_classes: true
+  include_crops_for_disease_classes: true
+  crop_context_margin: 0.15   # expand each YOLO box by this fraction per side before cropping
+  min_crop_size_px: 20        # crops smaller than this on either side are dropped (see audit)
+
+yolo:
+  base_model: yolov8n.pt
+  compare_model: yolov8s.pt
+  epochs: 100
+  patience: 20      # early stopping patience (Ultralytics built-in)
+
+classifier:
+  primary_backbone: resnet50
+  compare_backbone: resnet18
+  max_epochs: 40
+  early_stopping_patience: 7
+  lr: 0.0003
+  weight_decay: 0.0001
+  label_smoothing: 0.05
+
+thresholds:
+  # Used by pipeline/inference_pipeline.py to decide agreement vs disagreement
+  # and whether a prediction is confident enough to report as final.
+  yolo_confidence: 0.35
+  cnn_confidence: 0.50
+  agreement_required: true
+
+gradcam:
+  target_layer: layer4   # last conv block of both resnet18 and resnet50

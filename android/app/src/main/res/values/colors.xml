@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- XML-level only (splash window background, adaptive icon). The full
+         palette used everywhere else lives in ui/theme/Color.kt. -->
+    <color name="forest_green_900">#0F3D2A</color>
+    <color name="ivory_50">#FAF6EC</color>
+</resources>

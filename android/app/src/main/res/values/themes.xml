@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Minimal XML theme: only used for the window/splash background before
+      Compose takes over. All real theming (colors, typography, light/dark)
+      lives in ui/theme/*.kt (Material3 in Compose), per project brief
+      section 11.
+    -->
+    <style name="Theme.RiceGuard" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/forest_green_900</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

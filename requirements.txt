@@ -1,0 +1,27 @@
+# Core deep learning
+torch>=2.3
+torchvision>=0.18
+
+# Object detection
+ultralytics>=8.2
+
+# Computer vision / imaging
+opencv-python>=4.9
+Pillow>=10.2
+imagehash>=4.3
+
+# Data handling
+numpy>=1.26
+pandas>=2.2
+openpyxl>=3.1
+PyYAML>=6.0
+
+# ML utilities
+scikit-learn>=1.4
+
+# Visualization
+matplotlib>=3.8
+seaborn>=0.13
+
+# Misc
+tqdm>=4.66

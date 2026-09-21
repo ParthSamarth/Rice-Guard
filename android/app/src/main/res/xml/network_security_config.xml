@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  This app makes exactly one kind of network call: HTTP to the user-configured
+  local RiceGuard AI server (Settings screen: IP/hostname + port), which the
+  server itself only accepts from private-network clients (see
+  server/security.py:LocalNetworkOnlyMiddleware). There is no other network
+  destination in this app's codebase, so allowing cleartext app-wide is
+  equivalent in practice to allowing it for "the local server"; it is not a
+  general internet cleartext exposure.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
