@@ -1,0 +1,32 @@
+# Python environments and bytecode
+.venv/
+__pycache__/
+*.py[cod]
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Large datasets, archives, trained weights, and generated experiment output
+dataset/
+models/
+outputs/
+runs/
+*.zip
+*.pt
+
+# Android/Gradle build products and IDE state
+android/.gradle/
+android/.idea/
+android/build/
+android/app/build/
+android/local.properties
+*.apk
+
+# General local tooling
+.idea/
+.vscode/
+.claude/
+.DS_Store
+Thumbs.db

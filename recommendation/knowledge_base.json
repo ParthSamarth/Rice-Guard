@@ -1,0 +1,144 @@
+{
+  "_disclaimer": "This knowledge base provides GENERAL, non-quantitative agronomic background and management CATEGORIES for each disease, drawn from widely-documented plant pathology / IPM (Integrated Pest Management) principles and the disease descriptions already present in this project's own dataset documentation (README.md, Annotation Protocol.pdf). It deliberately contains NO pesticide/fungicide product names, dosages, concentrations, or application frequencies, because none were supplied with the project materials -- inventing those would be unsafe and scientifically indefensible. Every class's 'treatment' field is explicitly marked as requiring authoritative validation before any real-world use. This file must be reviewed and completed by a qualified agricultural extension officer or plant pathologist (e.g. via the Bangladesh Rice Research Institute / BRRI, or the Department of Agricultural Extension) before being used for real farming decisions.",
+  "_schema_version": "1.0",
+  "classes": {
+    "Healthy": {
+      "causal_agent": "N/A -- no disease detected",
+      "description": "The leaf shows no visually detectable disease symptoms in the analyzed image.",
+      "symptoms": [
+        "Uniform green coloration",
+        "No lesions, spots, streaks, or discoloration typical of the 5 diseases in this system"
+      ],
+      "management": [
+        "Continue routine field monitoring for early symptom detection.",
+        "Maintain balanced fertilization and irrigation practices appropriate to the crop growth stage.",
+        "A single 'Healthy' prediction on one image/region is not a field-level guarantee -- keep monitoring other plants and later growth stages."
+      ],
+      "treatment": [],
+      "prevention": [
+        "Preventive care generally applies across all diseases below (resistant varieties, field sanitation, balanced fertilization, proper water management)."
+      ],
+      "requires_expert_validation": false
+    },
+    "Blast": {
+      "causal_agent": "Magnaporthe oryzae (fungal)",
+      "description": "One of the most economically damaging rice diseases worldwide; affects leaves, nodes, and panicles.",
+      "symptoms": [
+        "Spindle-shaped lesions",
+        "Gray-white lesion centers with brown margins",
+        "Individual lesions typically ~1-2 cm",
+        "Lesions may coalesce under severe pressure"
+      ],
+      "management": [
+        "Favor resistant/tolerant rice varieties where locally available.",
+        "Avoid excess nitrogen fertilization, particularly late top-dressing -- high N is a well-documented risk factor that increases blast susceptibility.",
+        "Maintain field sanitation: remove and destroy infected residue and volunteer rice plants between seasons.",
+        "Monitor closely during prolonged humid/cloudy/wet conditions, which favor spore production and spread."
+      ],
+      "treatment": [
+        "NEEDS_AUTHORITATIVE_VALIDATION -- no specific fungicide product, dosage, concentration, or application-frequency data was supplied with this project's source materials. Consult a licensed agricultural extension officer (e.g. BRRI / Department of Agricultural Extension, Bangladesh) or a validated regional plant-protection guideline before applying any fungicide."
+      ],
+      "prevention": [
+        "Use certified, disease-free seed.",
+        "Avoid overly dense planting to improve canopy airflow and reduce humidity buildup.",
+        "Diversify/rotate varieties across seasons where feasible to reduce pathogen adaptation pressure."
+      ],
+      "requires_expert_validation": true
+    },
+    "Brown Spot": {
+      "causal_agent": "Bipolaris oryzae (fungal)",
+      "description": "Historically linked to nutrient-stressed soils (notably the Bengal famine of 1943); affects leaves and grains.",
+      "symptoms": [
+        "Circular to oval brown-centered spots",
+        "Can occur at very high density on a single leaf",
+        "Highest average lesion count per image among the diseases in this dataset"
+      ],
+      "management": [
+        "Correct soil fertility issues, particularly potassium deficiency, which is classically associated with Brown Spot severity.",
+        "Maintain field sanitation: remove infected crop residue.",
+        "Favor resistant/tolerant varieties where available.",
+        "Avoid moisture stress (both drought and waterlogging) where possible."
+      ],
+      "treatment": [
+        "NEEDS_AUTHORITATIVE_VALIDATION -- no specific fungicide/seed-treatment product, dosage, concentration, or application-frequency data was supplied with this project's source materials. Consult a licensed agricultural extension officer or a validated regional plant-protection guideline before applying any treatment."
+      ],
+      "prevention": [
+        "Use certified, disease-free (and where applicable, appropriately treated) seed.",
+        "Maintain balanced soil fertility, especially adequate potassium.",
+        "Avoid planting in known nutrient-poor or marginal soils without prior correction."
+      ],
+      "requires_expert_validation": true
+    },
+    "Leaf Smut": {
+      "causal_agent": "Entyloma oryzae (fungal)",
+      "description": "Generally considered a minor disease relative to Blast/Brown Spot/Sheath Blight, but can still reduce photosynthetic leaf area under heavy infection.",
+      "symptoms": [
+        "Small black spots/streaks following leaf veins",
+        "Typical lesion size ~2-5 mm (smallest among the 5 diseases)",
+        "Pustules may rupture and release spores"
+      ],
+      "management": [
+        "Maintain field sanitation: remove and destroy infected leaf debris after harvest.",
+        "Avoid working in wet fields when pustules are visibly rupturing, to limit mechanical spore spread.",
+        "Favor resistant/tolerant varieties where available."
+      ],
+      "treatment": [
+        "NEEDS_AUTHORITATIVE_VALIDATION -- no specific treatment product, dosage, concentration, or application-frequency data was supplied with this project's source materials. Consult a licensed agricultural extension officer before applying any treatment."
+      ],
+      "prevention": [
+        "Practice crop rotation where feasible.",
+        "Maintain balanced fertilization.",
+        "Avoid excessively dense canopies that retain leaf surface moisture."
+      ],
+      "requires_expert_validation": true
+    },
+    "Rice Tungro": {
+      "causal_agent": "Viral (Rice Tungro Bacilliform Virus + Rice Tungro Spherical Virus, transmitted by green leafhopper vectors)",
+      "description": "A vector-borne viral disease -- unlike the fungal diseases in this dataset, there is no direct curative chemical treatment once a plant is infected; management is centered on vector control and preventing spread.",
+      "symptoms": [
+        "Yellowing / discoloration",
+        "Mottled, chlorotic (diffuse, non-discrete) patterns rather than sharply bounded lesions",
+        "Lowest average bounding-box count per image among the 5 diseases, consistent with its diffuse presentation"
+      ],
+      "management": [
+        "Because this is viral and vector-borne, management is about the leafhopper vector and infected plants, not a direct cure: monitor and manage green leafhopper populations using IPM principles (natural enemies, monitoring thresholds) rather than blanket insecticide use.",
+        "Promptly rogue (remove) clearly infected plants where practical, to reduce the local virus source.",
+        "Synchronize planting dates across a locality where feasible, to avoid continuous host availability that sustains vector populations."
+      ],
+      "treatment": [
+        "NEEDS_AUTHORITATIVE_VALIDATION -- there is no direct chemical cure for an already-infected plant; any vector-control (insecticide) product, dosage, concentration, or application-frequency recommendation was NOT supplied with this project's source materials and must come from a licensed agricultural extension officer or validated regional guideline."
+      ],
+      "prevention": [
+        "Use Tungro-tolerant/resistant varieties where locally available.",
+        "Synchronize community-level planting schedules to reduce vector bridging between seasons.",
+        "Manage leafhopper vector populations proactively through IPM rather than reactive spraying alone."
+      ],
+      "requires_expert_validation": true
+    },
+    "Sheath Blight": {
+      "causal_agent": "Rhizoctonia solani (fungal)",
+      "description": "One of the major rice diseases, especially in densely planted, heavily fertilized, high-humidity conditions.",
+      "symptoms": [
+        "Large, irregular lesions",
+        "Greenish-gray to brown coloration",
+        "Water-soaked lesion borders",
+        "Typically 1-3 cm or larger -- the largest average lesion size among the 5 diseases"
+      ],
+      "management": [
+        "Avoid excessive plant density and excessive nitrogen -- dense canopies plus high humidity are well-documented drivers of Sheath Blight spread.",
+        "Improve field drainage / water management; prolonged standing water combined with high humidity favors this pathogen.",
+        "Maintain field sanitation: remove infected stubble and residue after harvest."
+      ],
+      "treatment": [
+        "NEEDS_AUTHORITATIVE_VALIDATION -- no specific fungicide product, dosage, concentration, or application-frequency data was supplied with this project's source materials. Consult a licensed agricultural extension officer or a validated regional plant-protection guideline before applying any fungicide."
+      ],
+      "prevention": [
+        "Maintain proper plant spacing for canopy airflow.",
+        "Balance fertilization -- avoid excess nitrogen.",
+        "Where feasible, avoid continuous flooding for extended periods.",
+        "Favor resistant/tolerant varieties where available."
+      ],
+      "requires_expert_validation": true
+    }
+  }
+}

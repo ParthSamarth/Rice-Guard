@@ -1,0 +1,7 @@
+# RiceGuard AI local API server (Application Layer). Installs on top of the
+# project's existing venv, which already has the Intelligence Layer's
+# dependencies (torch, ultralytics, etc. -- see ../requirements.txt).
+fastapi>=0.110
+uvicorn[standard]>=0.27
+python-multipart>=0.0.9
+zeroconf>=0.132  # mDNS/DNS-SD advertisement so the Android app can auto-discover this server

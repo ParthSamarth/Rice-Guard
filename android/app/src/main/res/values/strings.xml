@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RiceGuard</string>
+    <string name="tagline">Intelligent rice health at your fingertips</string>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--
+      CHANGE_WIFI_MULTICAST_STATE: required to hold a WifiManager.MulticastLock
+      while mDNS/NSD discovery (_riceguard._tcp) is active, since several OEM
+      Wi-Fi stacks (this app targets a Xiaomi/HyperOS device) silently drop
+      inbound multicast packets to save power unless something explicitly
+      asks for them, which would otherwise make server auto-discovery
+      unreliable. Normal-protection permission, so no runtime prompt.
+    -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="true" />
+    <!--
+      No NSD-specific runtime permission is requested here: this app's
+      targetSdk is 34, and Android's local-network-discovery permission
+      changes for apps TARGETING newer API levels don't apply unless/until
+      targetSdk is raised to match. If targetSdk moves past that boundary in
+      the future, ServiceDiscoveryRepository's NsdManager usage will need a
+      matching runtime-permission flow added alongside it.
+    -->
+
+    <application
+        android:name=".RiceGuardApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RiceGuard"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <!--
+          usesCleartextTraffic=true is intentional and scoped to this app's one
+          purpose: talking plain HTTP to a FastAPI server on the SAME local
+          Wi-Fi network (project brief section 5/22: no cloud upload, no
+          public internet destination is ever contacted by this app). The
+          network_security_config below further restricts cleartext to
+          private-network IP ranges only, matching the server's own
+          LocalNetworkOnlyMiddleware (server/security.py).
+        -->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.RiceGuard"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
